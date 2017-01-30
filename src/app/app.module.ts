@@ -6,13 +6,15 @@ import {DealsData} from '../providers/deals-data';
 import {GameSummaryPage} from '../pages/game-summary/game-summary';
 import {DealsFilterPage} from '../pages/deals-filter/deals-filter';
 import {FilterService} from '../providers/filter-service';
+import {FilterPipe} from '../pipes/filter-pipe';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     GameSummaryPage,
-    DealsFilterPage
+    DealsFilterPage,
+    FilterPipe
   ],
   imports: [
     IonicModule.forRoot(MyApp)

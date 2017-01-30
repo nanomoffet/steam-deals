@@ -2,10 +2,6 @@
   <ion-toolbar>
 
     <ion-title>Steam Deals</ion-title>
-    {{steamRatingFilter.lower}} - {{steamRatingFilter.upper}}
-    {{metacriticRatingFilter.lower}} - {{metacriticRatingFilter.upper}}
-    {{salePriceFilter.lower}} - {{salePriceFilter.upper}}
-    {{dealScoreFilter.lower}} - {{dealScoreFilter.upper}}
 
     <ion-buttons end>
       <button ion-button icon-only (click)="openFilters($event)">
@@ -20,7 +16,11 @@
 
 
 
-<page-game-summary *ngFor="let game of games" [gameThumb]="game.thumb"
+<page-game-summary *ngFor="let game of games | FilterPipe : {steamRange: steamRatingFilter,
+                                                           metacriticRange: metacriticRatingFilter,
+                                                           salePriceRange: salePriceFilter,
+                                                           dealScoreRange: dealScoreFilter}"
+                   [gameThumb]="game.thumb"
                    [gameTitle]="game.title"
                    [steamRating]="game.steamRatingPercent"
                    [metacriticRating]="game.metacriticScore"

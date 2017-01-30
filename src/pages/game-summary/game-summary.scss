@@ -1,3 +1,6 @@
 page-game-summary {
-max-width: 200px;
+  ion-card {
+    max-width: 45%;
+    float: left;
+  }
 }

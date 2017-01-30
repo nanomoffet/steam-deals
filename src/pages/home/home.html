@@ -1,12 +1,20 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Steam Deals
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+
+    <ion-title>Steam Deals</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openFilters($event)">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+
+
 
 <page-game-summary *ngFor="let game of games" [gameThumb]="game.thumb"
                    [gameTitle]="game.title"

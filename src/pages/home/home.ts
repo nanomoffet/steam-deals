@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { NavController, PopoverController } from 'ionic-angular';
+
 import {DealsData} from '../../providers/deals-data';
 import { GameSummaryPage } from '../game-summary/game-summary';
+import { DealsFilterPage } from '../deals-filter/deals-filter';
+
 
 @Component({
   selector: 'page-home',
@@ -14,7 +17,7 @@ export class HomePage {
   errorMessage;
 
 
-  constructor(public navCtrl: NavController, public dealsDataService: DealsData) {
+  constructor(public navCtrl: NavController, public filterCtrl: PopoverController, public dealsDataService: DealsData) {
 
   }
 
@@ -27,6 +30,13 @@ export class HomePage {
       .subscribe(
         data => {this.games = data},
         error => this.errorMessage = <any>error);
+  }
+
+  openFilters(myEvent) {
+    let popover = this.filterCtrl.create(DealsFilterPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 
 }

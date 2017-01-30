@@ -4,12 +4,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {DealsData} from '../providers/deals-data';
 import {GameSummaryPage} from '../pages/game-summary/game-summary';
+import {DealsFilterPage} from '../pages/deals-filter/deals-filter';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    GameSummaryPage
+    GameSummaryPage,
+    DealsFilterPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -17,7 +19,9 @@ import {GameSummaryPage} from '../pages/game-summary/game-summary';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    GameSummaryPage,
+    DealsFilterPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DealsData]
 })

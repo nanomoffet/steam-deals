@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import {DealsData} from '../providers/deals-data';
 import {GameSummaryPage} from '../pages/game-summary/game-summary';
 import {DealsFilterPage} from '../pages/deals-filter/deals-filter';
+import {FilterService} from '../providers/filter-service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,6 @@ import {DealsFilterPage} from '../pages/deals-filter/deals-filter';
     GameSummaryPage,
     DealsFilterPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DealsData]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DealsData, FilterService]
 })
 export class AppModule {}

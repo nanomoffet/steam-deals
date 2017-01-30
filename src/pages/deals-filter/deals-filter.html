@@ -1,23 +1,42 @@
-<ion-header>
   <ion-title>Deals Filter</ion-title>
-</ion-header>
 
 <ion-content padding>
   <ion-list>
-    <h2>Steam Rating</h2>
+    <h5>Steam Rating</h5>
+    {{steamRatingFilter.lower}} - {{steamRatingFilter.upper}}
     <ion-item>
-
-      <ion-range min="0" max="100" [(ngModel)]="steamRating">
+      <ion-range dualKnobs="true" min="0" max="100" [(ngModel)]="steamRatingFilter">
         <ion-label range-left>0</ion-label>
         <ion-label range-right>100</ion-label>
       </ion-range>
     </ion-item>
+
+  <h5>Metacritic Rating</h5>
+    {{metacriticRatingFilter.lower}} - {{metacriticRatingFilter.upper}}
+    <ion-item>
+      <ion-range dualKnobs="true" min="0" max="100" [(ngModel)]="metacriticRatingFilter">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>100</ion-label>
+      </ion-range>
+    </ion-item>
+
+  <h5>Sale Price</h5>
+    ${{salePriceFilter.lower}} - ${{salePriceFilter.upper}}
+    <ion-item>
+      <ion-range dualKnobs="true" min="0" max="100" [(ngModel)]="salePriceFilter">
+        <ion-label range-left>$0</ion-label>
+        <ion-label range-right>$100</ion-label>
+      </ion-range>
+    </ion-item>
+
+  <h5>Deal Score</h5>
+    {{dealScoreFilter.lower / 10}} - {{dealScoreFilter.upper / 10}}
+    <ion-item>
+      <ion-range dualKnobs="true" min="0" max="100" [(ngModel)]="dealScoreFilter">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>10</ion-label>
+      </ion-range>
+    </ion-item>
+
   </ion-list>
-
-  <h2>Metacritic Rating</h2>
-
-  <h2>Sale Price</h2>
-
-  <h2>Deal Score</h2>
-
 </ion-content>

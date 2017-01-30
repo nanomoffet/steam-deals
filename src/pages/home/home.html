@@ -2,6 +2,10 @@
   <ion-toolbar>
 
     <ion-title>Steam Deals</ion-title>
+    {{steamRatingFilter.lower}} - {{steamRatingFilter.upper}}
+    {{metacriticRatingFilter.lower}} - {{metacriticRatingFilter.upper}}
+    {{salePriceFilter.lower}} - {{salePriceFilter.upper}}
+    {{dealScoreFilter.lower}} - {{dealScoreFilter.upper}}
 
     <ion-buttons end>
       <button ion-button icon-only (click)="openFilters($event)">

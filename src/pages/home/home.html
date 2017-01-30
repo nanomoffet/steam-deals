@@ -1,14 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Steam Deals
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<page-game-summary *ngFor="let game of games" [gameThumb]="game.thumb"
+                   [gameTitle]="game.title"
+                   [steamRating]="game.steamRatingPercent"
+                   [metacriticRating]="game.metacriticScore"
+                   [originalPrice]="game.normalPrice"
+                   [salePrice]="game.salePrice"
+                   [dealScore]="game.dealRating"
+></page-game-summary>
 </ion-content>

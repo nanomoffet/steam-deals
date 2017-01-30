@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import {DealsData} from '../../providers/deals-data';
+import { GameSummaryPage } from '../game-summary/game-summary';
 
 @Component({
   selector: 'page-home',
@@ -9,7 +10,7 @@ import {DealsData} from '../../providers/deals-data';
 })
 export class HomePage {
 
-  data;
+  games;
   errorMessage;
 
 
@@ -24,8 +25,7 @@ export class HomePage {
   getData() {
     this.dealsDataService.getDealsData()
       .subscribe(
-        data => {this.data = data;
-          console.log(this.data)},
+        data => {this.games = data},
         error => this.errorMessage = <any>error);
   }
 

@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {BehaviorSubject} from 'rxjs';
 
-/*
-  Generated class for the FilterService provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class FilterService {
+
+  // Observables for the filter. It's bad practice to subscribe directly to a Subject, so instead we create an observable
+  // that captures the stream coming from the Subject and pass it along to both Filter and Home Page
 
   // Steam Rating
   steamRatingSource = new BehaviorSubject({lower: 0, upper: 100});

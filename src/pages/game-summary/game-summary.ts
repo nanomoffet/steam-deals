@@ -1,17 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the GameSummary page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-game-summary',
   templateUrl: 'game-summary.html'
 })
 export class GameSummaryPage {
+
+  // Inputs to pass the data received in the Home component down into the directives that get repeated by *ngFor
 
   @Input() gameThumb: string;
   @Input() gameTitle: string;

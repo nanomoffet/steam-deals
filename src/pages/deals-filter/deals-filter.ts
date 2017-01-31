@@ -14,10 +14,14 @@ export class DealsFilterPage {
   salePriceSubscription: Subscription;
   dealRatingSubscription: Subscription;
 
+  // Variables to hold the filter values
+
   steamRatingFilter;
   metacriticRatingFilter;
   salePriceFilter;
   dealScoreFilter;
+
+  // Initializing value objects in constructor to prevent errors on initial load
 
   constructor(public viewCtrl: ViewController, public filterService: FilterService) {
     this.steamRatingFilter = {lower: 0, upper: 100};
@@ -25,6 +29,8 @@ export class DealsFilterPage {
     this.salePriceFilter = {lower: 0.00, upper: 99.99};
     this.dealScoreFilter = {lower: 0, upper: 100};
   }
+
+  // Creating subscriptions to the filter service so changes in this component are visible to the pipe in Home Page
 
   ionViewDidLoad() {
     this.steamRatingSubscription = this.filterService.steamRatingData$.subscribe(data => this.steamRatingFilter = data);

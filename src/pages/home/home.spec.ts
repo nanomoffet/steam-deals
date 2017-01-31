@@ -8,7 +8,6 @@ import {GameDetailPage} from '../game-detail/game-detail';
 import {FilterPipe} from '../../pipes/filter-pipe';
 import {DealsFilterPage} from '../deals-filter/deals-filter';
 import {GameSummaryPage} from '../game-summary/game-summary';
-import {GameDetailService} from '../../providers/game-detail-service';
 import {FilterService} from '../../providers/filter-service';
 import {DealsData} from '../../providers/deals-data';
 
@@ -61,7 +60,5 @@ describe('Page: Home Page', () => {
   it('initializes with a title of Steam Deals', () => {
     expect(comp['title']).toEqual('Steam Deals');
   }); // end it
-
-
 
 }); // End describe

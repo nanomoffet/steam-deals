@@ -17,6 +17,8 @@ export class GameDetailPage {
   steamID;
   gameDetails;
 
+  // Values for the Details page to bind to
+
   title;
   requiredAge;
   detailedDescription;
@@ -32,6 +34,9 @@ export class GameDetailPage {
   ionViewDidLoad() {
     this.getGameDetail();
   }
+
+  // Function to call the game detail service and fetch the specific game info from Steam's API. This is set up as a
+  // promise chain per the provided specs but normally using Observables would also work.
 
   getGameDetail() {
     this.gameDetailService.getGameDetail(this.navParams.get('game').gameID)

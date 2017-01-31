@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, PopoverController } from 'ionic-angular';
 
 import {DealsData} from '../../providers/deals-data';
-import { GameSummaryPage } from '../game-summary/game-summary';
-import { DealsFilterPage } from '../deals-filter/deals-filter';
+import {DealsFilterPage} from '../deals-filter/deals-filter';
 import {FilterService} from '../../providers/filter-service';
 import {Subscription} from 'rxjs';
 import {GameDetailPage} from '../game-detail/game-detail';
@@ -20,6 +19,9 @@ export class HomePage {
 
   games;
   errorMessage;
+
+  // Subscriptions set up for the Observables that will be passing the filter objects to the pipe in order to
+  // change the displayed games. Default objects prevent errors on initial load.
 
   steamRatingSubscription: Subscription;
   steamRatingFilter = {lower: 0, upper: 100};
@@ -45,12 +47,17 @@ export class HomePage {
   ionViewDidLoad() {
     this.getData();
 
+    // Subscriptions to the observables being returned by the filter service to enable the pipe to reflect the filter
+    // options
+
     this.steamRatingSubscription = this.filterService.steamRatingData$.subscribe(data => this.steamRatingFilter = data);
     this.metacriticRatingSubscription = this.filterService.metacriticRatingData$.subscribe(data => this.metacriticRatingFilter = data);
     this.salePriceSubscription = this.filterService.salePriceData$.subscribe(data => this.salePriceFilter = data);
     this.dealScoreSubscription = this.filterService.dealScoreData$.subscribe(data => this.dealScoreFilter = data);
   }
 
+
+  //Pull in the list of unfiltered deals
   getData() {
     this.dealsDataService.getDealsData()
       .subscribe(
@@ -58,6 +65,7 @@ export class HomePage {
         error => this.errorMessage = <any>error);
   }
 
+  // Load the popover containing the filter controls
   openFilters(myEvent) {
     let popover = this.filterCtrl.create(DealsFilterPage);
     popover.present({
@@ -65,6 +73,7 @@ export class HomePage {
     });
   }
 
+  // Load game detail page for clicked game card
   openGameDetail(game) {
     this.navCtrl.push(GameDetailPage, {
       game: game

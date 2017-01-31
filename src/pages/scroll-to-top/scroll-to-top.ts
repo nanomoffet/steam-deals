@@ -8,6 +8,9 @@ import {Subscription, Observable} from 'rxjs';
 })
 export class ScrollToTopPage {
 
+  // _subs contains all the subscriptions generated from firing scrollToTop
+  // gameList is a reference to the full list of game summaries from the Home Page
+
   private _subs:Subscription[] = [];
   @Input()
   gameList;
@@ -19,15 +22,19 @@ export class ScrollToTopPage {
 
   }
 
+  // ngOnInit will only fire once since the page is cached for later viewing, but that's all that's needed in this case
   ngOnInit() {
     this.manuallyBindToViewEvents()
   }
 
   manuallyBindToViewEvents() {
-    this.subscribeToMyButton()
+    this.scrollToTop()
   }
 
-  subscribeToMyButton() {
+
+  // Scrolling functionality is run it a fork of Angular's parent zone using zone.js in order to prevent change detection
+  // and a DOM repaint from triggering - performance saving measure
+  scrollToTop() {
     let sub:Subscription;
 
     this._zone.runOutsideAngular(() => {
@@ -40,7 +47,7 @@ export class ScrollToTopPage {
   }
 
   ngOnDestroy() {
-    // clean up subscriptions
+    // clean up subscriptions to avoid memory leaks
     this._subs.forEach(sub => sub.unsubscribe());
   }
 

@@ -7,6 +7,9 @@ export class GameDetailService {
 
   constructor(public http: Http) {}
 
+  // Game details are pulled in through Angular's HTTP provider, and then converted to promises instead of their default
+  // Observables. Data extraction and error handling are again implemented in a functional programming methodology.
+
   getGameDetail(gameID): Promise<any> {
     return this.http.get(`http://www.cheapshark.com/api/1.0/games?id=${gameID}`)
       .toPromise()
@@ -14,6 +17,8 @@ export class GameDetailService {
       .catch(this.handleError);
   }
 
+  // Note that the steam API blocks CORS access so the URL has to be proxied. /steam is proxied in ionic.config.json
+  // as http://store.steampowered.com/api/appdetails
   getSteamDetail (steamID): Promise<any> {
     return this.http.get(`/steam/?appids=${steamID}`)
       .toPromise()

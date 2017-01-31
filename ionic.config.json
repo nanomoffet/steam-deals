@@ -2,5 +2,11 @@
   "name": "steam-deals",
   "app_id": "",
   "v2": true,
-  "typescript": true
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/steam",
+      "proxyUrl": "http://store.steampowered.com/api/appdetails"
+    }
+    ]
 }

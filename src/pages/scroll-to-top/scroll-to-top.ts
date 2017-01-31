@@ -32,7 +32,7 @@ export class ScrollToTopPage {
 
     this._zone.runOutsideAngular(() => {
       sub = Observable.fromEvent(this.scrollButton.nativeElement, 'click').subscribe(e => {
-        this.gameList.scrollToTop();
+        this.gameList.scrollToTop(600);
       })
     });
 

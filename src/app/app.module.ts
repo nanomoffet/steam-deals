@@ -8,6 +8,8 @@ import {DealsFilterPage} from '../pages/deals-filter/deals-filter';
 import {FilterService} from '../providers/filter-service';
 import {FilterPipe} from '../pipes/filter-pipe';
 import {ScrollToTopPage} from '../pages/scroll-to-top/scroll-to-top';
+import {GameDetailService} from '../providers/game-detail-service';
+import {GameDetailPage} from '../pages/game-detail/game-detail';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import {ScrollToTopPage} from '../pages/scroll-to-top/scroll-to-top';
     GameSummaryPage,
     ScrollToTopPage,
     DealsFilterPage,
+    GameDetailPage,
     FilterPipe
   ],
   imports: [
@@ -27,8 +30,9 @@ import {ScrollToTopPage} from '../pages/scroll-to-top/scroll-to-top';
     HomePage,
     GameSummaryPage,
     ScrollToTopPage,
-    DealsFilterPage
+    DealsFilterPage,
+    GameDetailPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DealsData, FilterService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DealsData, FilterService, GameDetailService]
 })
 export class AppModule {}

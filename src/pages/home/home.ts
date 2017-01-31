@@ -7,6 +7,7 @@ import { GameSummaryPage } from '../game-summary/game-summary';
 import { DealsFilterPage } from '../deals-filter/deals-filter';
 import {FilterService} from '../../providers/filter-service';
 import {Subscription} from 'rxjs';
+import {GameDetailPage} from '../game-detail/game-detail';
 
 
 @Component({
@@ -59,6 +60,12 @@ export class HomePage {
     let popover = this.filterCtrl.create(DealsFilterPage);
     popover.present({
       ev: myEvent
+    });
+  }
+
+  openGameDetail(game) {
+    this.navCtrl.push(GameDetailPage, {
+      game: game
     });
   }
 

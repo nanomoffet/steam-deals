@@ -16,6 +16,8 @@ import {GameDetailPage} from '../game-detail/game-detail';
 })
 export class HomePage {
 
+  title: string = 'Steam Deals';
+
   games;
   errorMessage;
 

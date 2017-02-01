@@ -7,6 +7,6 @@ describe('MyApp', () => {
   });
 
   it('should have a title', () => {
-    expect(browser.getTitle()).toEqual('MyApp');
+    expect(browser.getTitle()).toEqual('Ionic App');
   });
 })

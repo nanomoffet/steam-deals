@@ -9,7 +9,7 @@
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "test": "ng test",
-    "test-coverage": "ng test --code-coverage",
+    "test-coverage": "ng test -cc",
     "e2e": "ionic-app-scripts build && protractor",
     "postinstall": "webdriver-manager update"
   },
@@ -45,6 +45,7 @@
     "karma-jasmine": "1.1.0",
     "karma-mocha-reporter": "2.2.1",
     "karma-remap-istanbul": "0.4.0",
+    "protractor": "^5.0.0",
     "ts-node": "2.0.0",
     "tslint": "4.3.1",
     "tslint-eslint-rules": "3.2.3",
